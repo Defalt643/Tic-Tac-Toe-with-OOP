@@ -1,7 +1,8 @@
 package com.defalt.tictactoewithobjectorientedprogramming;
 
 public class Table {
-
+    PlayerX playerX;
+    Player playerO;
     String table[][] = new String[3][3];
     int round = 0;
 
@@ -61,9 +62,15 @@ public class Table {
         }
 
         return false;
+    } public static char getWinner(int round) {
+        if (round % 2 == 0) {
+            return 'X';
+        }
+        return 'O';
     }
 
     public void displayTable() {
+         System.out.println("  1 2 3");
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (j == 0) {
