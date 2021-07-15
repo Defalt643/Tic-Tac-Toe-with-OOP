@@ -8,6 +8,8 @@ public class Table {
                 table[i][j]="-";
             }
         }
+    }public static void checkWinner(){
+        
     }
         
 }
