@@ -2,14 +2,9 @@ package com.defalt.tictactoewithobjectorientedprogramming;
 
 public class PlayerO extends Table {
 
-    String O;
-
-    public PlayerO() {
-
-    }
-
     public void addIntoTable(int[] position) {
         super.table[position[0]][position[1]] = "O";
+        super.round++;
     }
 
     public boolean checkTable(int[] position) {
