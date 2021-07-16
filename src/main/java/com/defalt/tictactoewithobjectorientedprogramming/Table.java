@@ -15,7 +15,11 @@ public class Table {
             }
         }
     }
-
+    public boolean checkExist(int position[]){
+        if(table[position[0]][position[1]].equals("-")){
+            return true;
+        }
+    }
     public boolean checkWinner() {
 
         if (checkHorizontal()) {
