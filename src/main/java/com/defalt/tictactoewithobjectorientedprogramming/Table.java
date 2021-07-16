@@ -15,11 +15,27 @@ public class Table {
             }
         }
     }
-    public boolean checkExist(int position[]){
-        if(table[position[0]][position[1]].equals("-")){
+
+    public boolean checkExist(int position[]) {
+        if (!table[position[0]][position[1]].equals("-")) {
             return true;
         }
+        return false;
     }
+
+    public boolean addIntoTable(String playerName, int position[]) {
+        if (!checkExist(position)) {
+            table[position[0]][position[1]] = playerName;
+            displayTable();
+            round++;
+            return true;
+        } else {
+            System.out.println("Sorry this position is alreay exist. "
+                    + "Please try again");
+            return false;
+        }
+    }
+
     public boolean checkWinner() {
 
         if (checkHorizontal()) {
@@ -86,14 +102,10 @@ public class Table {
                 playerO.addWin();
                 playerX.addLose();
             }
-        }else{
+        } else {
             playerX.addDraw();
             playerO.addDraw();
         }
-    }
-
-    public void addIntoTable() {
-
     }
 
     public void displayTable() {
