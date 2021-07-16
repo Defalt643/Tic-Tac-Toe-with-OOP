@@ -102,11 +102,12 @@ public class Table {
                 playerO.addWin();
                 playerX.addLose();
             }
-        } else {
+        } else if (round == 9) {
             playerX.addDraw();
             playerO.addDraw();
         }
     }
+
 
     public void displayTable() {
         System.out.println("  1 2 3");

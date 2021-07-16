@@ -44,8 +44,8 @@ public class Main {
             return true;
         }
     }
-
-    public static Table startGame() {
+    
+    public static void startGame() {
         Table table = new Table();
         displayWelcomeAndTable(table);
         while (true) {
@@ -54,11 +54,11 @@ public class Main {
                 break;
             }
             if (table.round % 2 == 0) {
-                if(!table.addIntoTable("X", getInput(table.round))){
+                if (!table.addIntoTable("X", getInput(table.round))) {
                     continue;
                 }
             } else {
-                if(!table.addIntoTable("O", getInput(table.round))){
+                if (!table.addIntoTable("O", getInput(table.round))) {
                     continue;
                 }
             }
@@ -67,7 +67,8 @@ public class Main {
                 break;
             }
 
-        }return table;
+        }
+        
     }
 
     public static boolean restartGame() {
@@ -78,25 +79,23 @@ public class Main {
             if (status.equals("Yes")) {
                 return true;
             } else if (status.equals("No")) {
+                endGame();
                 return false;
             } else {
                 System.out.println("Your input are mismatch. "
                         + "Please try again!");
             }
         }
-    }public static void endGame(){    
+    }
+
+    public static void endGame() {
         System.out.println("Bye bye....");
-    }public static void showScore(Table table){
-            System.out.println("Player name Win Lose Draw");
-            System.out.println("      X     "+table.playerX.getWin()+"  "
-                    +table.playerX.getLose()+"  "
-                    +table.playerX.getDraw());
     }
 
     public static void main(String[] args) {
         while (true) {
-            showScore(startGame());
-            if(!restartGame()){
+            startGame();
+            if (!restartGame()) {
                 break;
             }
         }
