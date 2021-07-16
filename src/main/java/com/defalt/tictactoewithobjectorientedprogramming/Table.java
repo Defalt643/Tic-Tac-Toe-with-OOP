@@ -1,9 +1,11 @@
 package com.defalt.tictactoewithobjectorientedprogramming;
 
 public class Table {
-    PlayerX playerX;
+
+    Player playerX;
     Player playerO;
     String table[][] = new String[3][3];
+    String winnerName = "None";
     int round = 0;
 
     public Table() {
@@ -15,6 +17,7 @@ public class Table {
     }
 
     public boolean checkWinner() {
+
         if (checkHorizontal()) {
             return true;
         }
@@ -32,6 +35,7 @@ public class Table {
             if (table[i][0].equals(table[i][1])
                     && table[i][0].equals(table[i][2])
                     && !table[i][0].equals("-")) {
+                winnerName = table[i][0];
                 return true;
             }
         }
@@ -43,6 +47,7 @@ public class Table {
             if (table[0][i].equals(table[1][i])
                     && table[0][i].equals(table[2][i])
                     && !table[0][i].equals("-")) {
+                winnerName = table[0][i];
                 return true;
             }
         }
@@ -50,27 +55,45 @@ public class Table {
     }
 
     public boolean checkDiagonal() {
-        if (table[0][0].equals(table[1][1])
-                && table[0][0].equals(table[2][2])
+        if (table[0][0].equals(table[1][1]) && table[0][0].equals(table[2][2])
                 && !table[0][0].equals("-")) {
+            winnerName = table[0][0];
             return true;
         }
-        if (table[2][0].equals(table[1][1])
-                && table[2][0].equals(table[0][2])
+        if (table[2][0].equals(table[1][1]) && table[2][0].equals(table[0][2])
                 && !table[2][0].equals("-")) {
+            winnerName = table[2][0];
             return true;
         }
 
         return false;
-    } public static char getWinner(int round) {
-        if (round % 2 == 0) {
-            return 'X';
+    }
+
+    public String getWinner(int round) {
+        return winnerName;
+    }
+
+    public void updateScore() {
+        if (round != 9) {
+            if (winnerName.equals("X")) {
+                playerX.addWin();
+                playerO.addLose();
+            } else {
+                playerO.addWin();
+                playerX.addLose();
+            }
+        }else{
+            playerX.addDraw();
+            playerO.addDraw();
         }
-        return 'O';
+    }
+
+    public void addIntoTable() {
+
     }
 
     public void displayTable() {
-         System.out.println("  1 2 3");
+        System.out.println("  1 2 3");
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (j == 0) {

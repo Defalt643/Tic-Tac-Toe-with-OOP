@@ -3,7 +3,12 @@ package com.defalt.tictactoewithobjectorientedprogramming;
 public class Player extends Table {
 
     int score[] = {0, 0, 0};
-
+    String name;
+    public Player(String name){
+        this.name=name;
+    }public String getName(){
+        return name;
+    }
     public void addWin() {
         score[0]++;
     }
