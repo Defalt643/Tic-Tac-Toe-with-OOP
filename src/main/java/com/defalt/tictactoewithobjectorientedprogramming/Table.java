@@ -2,8 +2,6 @@ package com.defalt.tictactoewithobjectorientedprogramming;
 
 public class Table {
 
-    Player playerX;
-    Player playerO;
     String table[][] = new String[3][3];
     String winnerName = "None";
     int round = 0;
@@ -92,22 +90,6 @@ public class Table {
     public String getWinner(int round) {
         return winnerName;
     }
-
-    public void updateScore() {
-        if (round != 9) {
-            if (winnerName.equals("X")) {
-                playerX.addWin();
-                playerO.addLose();
-            } else {
-                playerO.addWin();
-                playerX.addLose();
-            }
-        } else if (round == 9) {
-            playerX.addDraw();
-            playerO.addDraw();
-        }
-    }
-
 
     public void displayTable() {
         System.out.println("  1 2 3");

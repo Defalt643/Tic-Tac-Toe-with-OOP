@@ -1,35 +1,36 @@
 package com.defalt.tictactoewithobjectorientedprogramming;
 
 public class Player extends Table {
-
-    int score[] = {0, 0, 0};
-    String name;
+    private String name;
+    private int win,lose,draw;
     public Player(String name){
         this.name=name;
-    }public String getName(){
+    }
+
+    public String getName() {
         return name;
     }
-    public void addWin() {
-        score[0]++;
-    }
-
-    public void addDraw() {
-        score[1]++;
-    }
-
-    public void addLose() {
-        score[2]++;
-    }
-
     public int getWin() {
-        return score[0];
+        return win;
     }
 
-    public int getDraw() {
-        return score[1];
+    public void addWin() {
+        win++;
     }
 
     public int getLose() {
-        return score[2];
+        return lose;
+    }
+
+    public void addLose() {
+        lose++;
+    }
+
+    public int getDraw() {
+        return draw;
+    }
+
+    public void addDraw() {
+        draw++;
     }
 }
