@@ -4,7 +4,7 @@ public class Table {
 
     String table[][] = new String[3][3];
     String winnerName = "None";
-    int round = 0;
+    public int round = 0;
 
     public Table() {
         for (int i = 0; i < table.length; i++) {
@@ -87,7 +87,7 @@ public class Table {
         return false;
     }
 
-    public String getWinner(int round) {
+    public String getWinner() {
         return winnerName;
     }
 

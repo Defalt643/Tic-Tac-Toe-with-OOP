@@ -59,16 +59,16 @@ public class Game {
                 break;
             }
             if (table.round % 2 == 0) {
-                if (!table.addIntoTable("X", getInput(table.round))) {
+                if (!table.addIntoTable(playerX.getName(), getInput(table.round))) {
                     continue;
                 }
             } else {
-                if (!table.addIntoTable("O", getInput(table.round))) {
+                if (!table.addIntoTable(playerO.getName(), getInput(table.round))) {
                     continue;
                 }
             }
             if (table.checkWinner()) {
-                System.out.println("Player " + table.getWinner(table.round) + " win!!");
+                System.out.println("Player " + table.getWinner() + " win!!");
                 updateScore(table);
                 showScore();
                 break;
@@ -100,10 +100,10 @@ public class Game {
     }
 
     public void updateScore(Table table) {
-        if (table.getWinner(table.round).equals("X")) {
+        if (table.getWinner().equals("X")) {
             playerX.addWin();
             playerO.addLose();
-        } else if(table.getWinner(table.round).equals("O")){
+        } else if (table.getWinner().equals("O")) {
             playerO.addWin();
             playerX.addLose();
         }
@@ -111,15 +111,16 @@ public class Game {
             playerX.addDraw();
             playerO.addDraw();
         }
-    }public void showScore(){
+    }
+
+    public void showScore() {
         System.out.println("========= Scoreboard =========");
-        System.out.println("Player Win  Lose  Draw");    
-        System.out.println("   X    "+playerX.getWin()+"     "+playerX.getLose()
-                +"     "+playerX.getDraw());
-        System.out.println("   O    "+playerO.getWin()+"     "+playerO.getLose()
-                +"     "+playerO.getDraw());
+        System.out.println("Player Win  Lose  Draw");
+        System.out.println("   X    " + playerX.getWin() + "     " + playerX.getLose()
+                + "     " + playerX.getDraw());
+        System.out.println("   O    " + playerO.getWin() + "     " + playerO.getLose()
+                + "     " + playerO.getDraw());
         System.out.println("==============================");
     }
-        
 
 }
