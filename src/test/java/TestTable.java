@@ -82,7 +82,9 @@ public class TestTable {
         table.addIntoTable(playerX.getName(), position2);
         assertEquals(true, table.checkWinner());
         assertEquals("X", table.getWinner());
-    }@Test
+    }
+
+    @Test
     public void testVertical1() {
         Player playerO = new Player("O");
         Table table = new Table();
@@ -94,7 +96,9 @@ public class TestTable {
         table.addIntoTable(playerO.getName(), position2);
         assertEquals(true, table.checkWinner());
         assertEquals("O", table.getWinner());
-    }@Test
+    }
+
+    @Test
     public void testVertical2() {
         Player playerO = new Player("O");
         Table table = new Table();
@@ -107,6 +111,7 @@ public class TestTable {
         assertEquals(true, table.checkWinner());
         assertEquals("O", table.getWinner());
     }
+
     @Test
     public void testVertical3() {
         Player playerO = new Player("O");
@@ -120,8 +125,9 @@ public class TestTable {
         assertEquals(true, table.checkWinner());
         assertEquals("O", table.getWinner());
     }
+
     @Test
-    public void testDiagonal1(){
+    public void testDiagonal1() {
         Player playerO = new Player("O");
         Table table = new Table();
         int position[] = {0, 0};
@@ -132,8 +138,10 @@ public class TestTable {
         table.addIntoTable(playerO.getName(), position2);
         assertEquals(true, table.checkWinner());
         assertEquals("O", table.getWinner());
-    }@Test
-    public void testDiagonal2(){
+    }
+
+    @Test
+    public void testDiagonal2() {
         Player playerX = new Player("X");
         Table table = new Table();
         int position[] = {0, 0};
@@ -144,11 +152,33 @@ public class TestTable {
         table.addIntoTable(playerX.getName(), position2);
         assertEquals(true, table.checkWinner());
         assertEquals("X", table.getWinner());
-    }@Test
-    public void testDraw(){
+    }
+
+    @Test
+    public void testDraw() {
         Player playerX = new Player("X");
         Player playerO = new Player("O");
         Table table = new Table();
-        
+        int position[] = {0, 0};
+        table.addIntoTable(playerX.getName(), position);
+        int position1[] = {0, 1};
+        table.addIntoTable(playerO.getName(), position1);
+        int position2[] = {0, 2};
+        table.addIntoTable(playerX.getName(), position2);
+        int position3[] = {1, 0};
+        table.addIntoTable(playerO.getName(), position3);
+        int position4[] = {1, 1};
+        table.addIntoTable(playerX.getName(), position4);
+        int position5[] = {1, 2};
+        table.addIntoTable(playerO.getName(), position5);
+        int position6[] = {2, 0};
+        table.addIntoTable(playerO.getName(), position6);
+        int position7[] = {2, 1};
+        table.addIntoTable(playerX.getName(), position7);
+        int position8[] = {2, 2};
+        table.addIntoTable(playerO.getName(), position8);
+        assertEquals(false,table.checkWinner());
+        assertEquals("None",table.getWinner());
+        assertEquals(9,table.round);
     }
 }
