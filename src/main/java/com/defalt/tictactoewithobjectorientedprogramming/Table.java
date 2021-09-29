@@ -28,7 +28,7 @@ public class Table {
             round++;
             return true;
         } else {
-            System.out.println("Sorry this position is alreay exist. "
+            System.out.println("Sorry this position is already exist. "
                     + "Please try again");
             return false;
         }

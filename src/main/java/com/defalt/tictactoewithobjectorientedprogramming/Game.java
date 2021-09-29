@@ -106,8 +106,7 @@ public class Game {
         } else if (table.getWinner().equals("O")) {
             playerO.addWin();
             playerX.addLose();
-        }
-        if (table.round == 9) {
+        } else if (table.round == 9) {
             playerX.addDraw();
             playerO.addDraw();
         }
